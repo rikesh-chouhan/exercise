@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: jooq-checker-3.12.2">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/jooq-checker-3.12.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
