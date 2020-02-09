@@ -27,8 +27,6 @@ fun main(args: Array<String>) {
 fun providePermutations(word: String): Set<String> {
     var listWords: MutableSet<String> = mutableSetOf()
 
-    var counter = 0;
-
     var stackFrag: Stack<String> = Stack()
     var frag = String(word.toCharArray())
     stackFrag.push(frag.substring(frag.length - 1))
