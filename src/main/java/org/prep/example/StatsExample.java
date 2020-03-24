@@ -9,6 +9,7 @@ import com.google.gson.JsonParser;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -33,7 +34,6 @@ public class StatsExample {
             for(int i=0; i<array.size(); i++) {
                 JsonObject arrayElement = array.get(i).getAsJsonObject();
                 String country = arrayElement.get("country").getAsString();
-                System.out.println("Country: " + country);
                 Map<String, Integer> dateCount = countryDate.get(country);
                 JsonArray dates = arrayElement.getAsJsonArray("availableDates");
                 if (dateCount == null) {
@@ -65,6 +65,13 @@ public class StatsExample {
             }
 
             System.out.println(countryDate);
+            Map sortedByValue = findDateFrequency(array).entrySet()
+                    .stream()
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                    .collect(
+                            Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                    LinkedHashMap::new));
+            System.out.println(sortedByValue);
         }
     }
 
@@ -85,6 +92,23 @@ public class StatsExample {
             return jsonStringBuffer.toString();
         }
         return null;
+    }
+
+    public static Map<String, Integer> findDateFrequency(JsonArray partnersArray) {
+        Map<String, Integer> dateCountMap = new TreeMap();
+        for (JsonElement jsonElement : partnersArray) {
+            JsonArray dates = jsonElement.getAsJsonObject().getAsJsonArray("availableDates");
+            for (JsonElement aDate: dates) {
+                String singleDate = aDate.getAsString();
+                Integer currValue = dateCountMap.get(singleDate);
+                if (currValue == null) {
+                    currValue = 0;
+                }
+                currValue++;
+                dateCountMap.put(singleDate, currValue);
+            }
+        }
+        return dateCountMap;
     }
 
 }
