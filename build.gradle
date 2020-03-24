@@ -27,6 +27,8 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core:2.10.0'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
     implementation 'org.jooq:jooq:3.12.2'
     implementation 'org.jooq:jooq-meta:3.12.2'
     implementation 'org.jooq:jooq-codegen:3.12.2'
