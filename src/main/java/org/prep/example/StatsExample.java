@@ -6,9 +6,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,7 +20,8 @@ public class StatsExample {
         if (args.length == 0) {
             return;
         }
-        String jsonString = readInputData(args[0]);
+        String jsonString = new JsonReader().readInputData(args[0]);
+
         if (jsonString != null) {
             JsonObject jsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
             JsonArray array = jsonObject.getAsJsonArray("partners");
@@ -73,25 +71,6 @@ public class StatsExample {
                                     LinkedHashMap::new));
             System.out.println(sortedByValue);
         }
-    }
-
-    public static String readInputData(String fileName) {
-        StringBuffer jsonStringBuffer = new StringBuffer();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                jsonStringBuffer.append(line);
-            }
-            System.out.println("Finished reading file: " + fileName);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (jsonStringBuffer != null) {
-            return jsonStringBuffer.toString();
-        }
-        return null;
     }
 
     public static Map<String, Integer> findDateFrequency(JsonArray partnersArray) {

@@ -19,8 +19,6 @@ public class TreeMapComp {
             counter++;
         }
 
-        TreeSet<Integer> ts = new TreeSet();
-
         System.out.println(tmc.map);
     }
 }
