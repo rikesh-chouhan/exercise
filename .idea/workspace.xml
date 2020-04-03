@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b4e307-6807-44e1-8532-b4928f871f70" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/exercise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/StatsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/StatsExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/TreeMapComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/TreeMapComp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/model/Partner2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/model/Partner2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SolutionJson">
+  <component name="RunManager" selected="Application.TicTacToeBoard">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -120,14 +114,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TicTacToeBoard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.TicTacToeBoard" />
+      <module name="exercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.prep.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.SolutionJson" />
       <item itemvalue="Application.GroupingExample" />
       <item itemvalue="Application.ReverseWords" />
       <item itemvalue="Application.StatsExample" />
+      <item itemvalue="Application.TicTacToeBoard" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TicTacToeBoard" />
         <item itemvalue="Application.GroupingExample" />
         <item itemvalue="Application.ReverseWords" />
         <item itemvalue="Application.StatsExample" />
