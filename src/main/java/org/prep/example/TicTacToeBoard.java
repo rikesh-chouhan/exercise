@@ -64,7 +64,7 @@ public class TicTacToeBoard {
                         System.out.printf("X");
                         break;
                     case USER_MOVE_2:
-                        System.out.print("O");
+                        System.out.printf("O");
                         break;
                     default:
                         System.out.printf("-");

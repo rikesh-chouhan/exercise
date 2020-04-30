@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b4e307-6807-44e1-8532-b4928f871f70" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/TicTacToeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/TicTacToeBoard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +55,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TicTacToeBoard">
+  <component name="RunManager" selected="Application.StringSkipCheck">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -60,10 +63,10 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupingExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.prep.example.GroupingExample" />
+    <configuration name="CounterForWords" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.CounterForWords" />
       <module name="exercise" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../tmp/formatted-hubspotdata.txt" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../tmp/html_text.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.prep.example.*" />
@@ -74,8 +77,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReverseWords" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.prep.example.ReverseWords" />
+    <configuration name="DeadLocked" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.DeadLocked" />
+      <module name="exercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.prep.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaderBoard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.LeaderBoard" />
+      <module name="exercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.prep.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PickingNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.PickingNumbers" />
       <module name="exercise" />
       <extension name="coverage">
         <pattern>
@@ -101,8 +130,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StatsExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.prep.example.StatsExample" />
+    <configuration name="StringSkipCheck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.StringSkipCheck" />
       <module name="exercise" />
       <extension name="coverage">
         <pattern>
@@ -129,19 +158,32 @@
     </configuration>
     <list>
       <item itemvalue="Application.SolutionJson" />
-      <item itemvalue="Application.GroupingExample" />
-      <item itemvalue="Application.ReverseWords" />
-      <item itemvalue="Application.StatsExample" />
+      <item itemvalue="Application.CounterForWords" />
       <item itemvalue="Application.TicTacToeBoard" />
+      <item itemvalue="Application.PickingNumbers" />
+      <item itemvalue="Application.LeaderBoard" />
+      <item itemvalue="Application.DeadLocked" />
+      <item itemvalue="Application.StringSkipCheck" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StringSkipCheck" />
+        <item itemvalue="Application.DeadLocked" />
+        <item itemvalue="Application.LeaderBoard" />
+        <item itemvalue="Application.PickingNumbers" />
         <item itemvalue="Application.TicTacToeBoard" />
-        <item itemvalue="Application.GroupingExample" />
-        <item itemvalue="Application.ReverseWords" />
-        <item itemvalue="Application.StatsExample" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />

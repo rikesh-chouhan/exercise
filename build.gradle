@@ -42,9 +42,9 @@ version = '1.0'
 //create a single Jar with all dependencies
 task fatJar(type: Jar) {
     manifest {
-        attributes 'Implementation-Title': 'Hubspot Coding Jar File',
+        attributes 'Implementation-Title': 'Wonderful Coding Jar File',
                 'Implementation-Version': version,
-                'Main-Class': 'HubSpotDataReader'
+                'Main-Class': 'StatsExample'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
