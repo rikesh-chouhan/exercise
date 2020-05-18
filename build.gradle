@@ -62,3 +62,9 @@ compileTestKotlin {
     }
 }
 
+
+def printProp(customProp) {
+    println customProp
+}
+
+task callCustom()

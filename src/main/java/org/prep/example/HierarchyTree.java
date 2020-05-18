@@ -1,6 +1,9 @@
 package org.prep.example;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -21,7 +24,7 @@ import java.util.*;
  * /xanax
  */
 
-class ForwardingRule {
+class HierarchyTree {
     public static void main(String[] args) {
         ArrayList<String> strings = new ArrayList<String>();
         strings.add("/home/anti-depressants/xanax");
@@ -39,19 +42,25 @@ class ForwardingRule {
         //   System.out.println(string);
         // }
         // System.out.println("Output");
-        List<ConnectedSentences> listOfNodes = createTree(strings);
-        for(ConnectedSentences entry: listOfNodes) {
+        List<WordSequence> listOfNodes = createTree(strings, '/');
+        for(WordSequence entry: listOfNodes) {
             printEntry(entry.head, entry.children, 0);
         }
     }
 
-    public static List<ConnectedSentences> createTree(List<String> input) {
-        List<ConnectedSentences> listOfNodes = new ArrayList<>();
+    /**
+     * Create the tree from given list of directory style strings
+     *
+     * @param input
+     * @return
+     */
+    public static List<WordSequence> createTree(List<String> input, char delimiter) {
+        List<WordSequence> listOfNodes = new ArrayList<>();
         for (String single : input) {
             StringBuilder builder = new StringBuilder();
             List<String> words = new ArrayList();
             for (char each : single.toCharArray()) {
-                if (each == '/') {
+                if (each == delimiter) {
                     if (builder.length() > 0) {
                         words.add(builder.toString());
                         builder.delete(0, builder.length());
@@ -64,9 +73,9 @@ class ForwardingRule {
                 words.add(builder.toString());
             }
             if (words.size() > 0) {
-                ConnectedSentences forEntry = createConnectedSentences(words.get(0), words, 1);
-                ConnectedSentences existing = null;
-                for (ConnectedSentences cs : listOfNodes) {
+                WordSequence forEntry = createSequenceChain(words.get(0), words, 1);
+                WordSequence existing = null;
+                for (WordSequence cs : listOfNodes) {
                     if (cs.head.equalsIgnoreCase(forEntry.head)) {
                         existing = cs;
                         break;
@@ -82,17 +91,25 @@ class ForwardingRule {
         return listOfNodes;
     }
 
-    static ConnectedSentences createConnectedSentences(String start, List<String> words, int arrayStartIndex) {
-        ConnectedSentences first = new ConnectedSentences();
+    /**
+     * Create a chain from given hierarchical string
+     *
+     * @param start
+     * @param words
+     * @param arrayStartIndex
+     * @return
+     */
+    static WordSequence createSequenceChain(String start, List<String> words, int arrayStartIndex) {
+        WordSequence first = new WordSequence();
         first.head = start;
-        ConnectedSentences node = first;
+        WordSequence node = first;
         int counter = 0;
         for (String word : words) {
             counter++;
             if (counter <= arrayStartIndex) {
                 continue;
             }
-            ConnectedSentences inner = new ConnectedSentences();
+            WordSequence inner = new WordSequence();
             inner.head = word;
             inner.children = new LinkedHashSet<>();
             node.children = new LinkedHashSet<>();
@@ -102,27 +119,30 @@ class ForwardingRule {
         return first;
     }
 
-    static void printEntry(String head, Set<ConnectedSentences> sentences, int depth) {
+    static void printEntry(String head, Set<WordSequence> sentences, int depth) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < depth * 2; i++)
             builder.append(" ");
         builder.append("-").append(" ");
         System.out.println(builder.toString() + head);
         if (sentences == null || sentences.size() == 0) return;
-        for (ConnectedSentences sentence : sentences) {
+        for (WordSequence sentence : sentences) {
             printEntry(sentence.head, sentence.children, depth + 1);
         }
     }
 }
 
-class ConnectedSentences {
+/**
+ * A Node representing a word sequence.
+ */
+class WordSequence {
     String head;
-    Set<ConnectedSentences> children = null;
+    Set<WordSequence> children = null;
 
-    void append(Set<ConnectedSentences> source) {
+    void append(Set<WordSequence> source) {
         if (source == null || source.size() == 0) return;
-        for (ConnectedSentences child : source) {
-            for (ConnectedSentences target : children) {
+        for (WordSequence child : source) {
+            for (WordSequence target : children) {
                 if (child.head.equalsIgnoreCase(target.head) && child.children != null) {
                     target.append(child.children);
                     source.remove(child);
