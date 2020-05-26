@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b4e307-6807-44e1-8532-b4928f871f70" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/exercise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/ForwardingRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/HierarchyTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/LeaderBoard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MaxNumberFinder">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -80,8 +74,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameOfLife" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.prep.example.GameOfLife" />
+    <configuration name="DigitAdder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.DigitAdder" />
       <module name="exercise" />
       <extension name="coverage">
         <pattern>
@@ -119,9 +113,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MSMove" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.prep.example.MSMove" />
+    <configuration name="MaxNumberFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.MaxNumberFinder" />
       <module name="exercise" />
+      <option name="PROGRAM_PARAMETERS" value="999 -999" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.prep.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NumberSplitter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.prep.example.NumberSplitter" />
+      <module name="exercise" />
+      <option name="PROGRAM_PARAMETERS" value="23456 1 55 -67 0" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.prep.example.*" />
@@ -146,35 +155,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StringSkipCheck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.prep.example.StringSkipCheck" />
-      <module name="exercise" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.prep.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.SolutionJson" />
       <item itemvalue="Application.CounterForWords" />
-      <item itemvalue="Application.StringSkipCheck" />
-      <item itemvalue="Application.MSMove" />
-      <item itemvalue="Application.GameOfLife" />
       <item itemvalue="Application.HierarchyTree" />
       <item itemvalue="Application.InfiniteStream" />
+      <item itemvalue="Application.NumberSplitter" />
+      <item itemvalue="Application.DigitAdder" />
+      <item itemvalue="Application.MaxNumberFinder" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MaxNumberFinder" />
+        <item itemvalue="Application.DigitAdder" />
+        <item itemvalue="Application.NumberSplitter" />
         <item itemvalue="Application.InfiniteStream" />
         <item itemvalue="Application.HierarchyTree" />
-        <item itemvalue="Application.GameOfLife" />
-        <item itemvalue="Application.MSMove" />
-        <item itemvalue="Application.StringSkipCheck" />
       </list>
     </recent_temporary>
   </component>
