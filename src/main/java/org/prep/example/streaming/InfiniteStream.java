@@ -10,11 +10,10 @@ public class InfiniteStream {
     static int BREAK = 100;
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Started");
-        System.out.print("Please input limit for stream count: ");
-        System.out.flush();
-//        Scanner scanner = new Scanner(System.in);
-        long limit = 10; // scanner.nextLong();
+        System.out.println("Please input limit for stream count: ");
+        long limit = Long.parseLong(scanner.nextLine());
         AtomicInteger size = new AtomicInteger(0);
         System.out.println("Limit: "+limit);
         randomNumberStream(Integer.MAX_VALUE).filter(value -> value>0).limit(limit).forEach(word -> {

@@ -27,14 +27,11 @@ public class NumberSplitter<T extends Integer> {
             digitList.add(0, aDigit);
         }
         digitList.add(0,number);
-//        for(int i = (digitList.size() - 1); i>= 0; i--) {
-//            System.out.print("--"+digitList.get(i));
-//        }
-        if (print)
-            for(int i = 0; i<digitList.size(); i++)
-                System.out.print("--"+digitList.get(i));
 
         if (print) {
+            for(int i = 0; i<digitList.size(); i++) {
+                System.out.print("--" + digitList.get(i));
+            }
             System.out.print("\n");
             System.out.flush();
         }
