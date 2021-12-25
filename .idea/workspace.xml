@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3b4e307-6807-44e1-8532-b4928f871f70" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/exercise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/DigitAdder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/DigitAdder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/prep/example/GridFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prep/example/GridFinder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
