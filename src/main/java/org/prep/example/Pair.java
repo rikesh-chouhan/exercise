@@ -1,20 +1,20 @@
 package org.prep.example;
 
-public class Pair<T,V> {
+public class Pair<L,R> {
 
-    protected T tVal;
-    protected V vVal;
+    protected L left;
+    protected R right;
 
-    public Pair(T t, V v) {
-        tVal = t;
-        vVal = v;
+    public Pair(L t, R v) {
+        left = t;
+        right = v;
     }
 
-    public T gettVal() {
-        return tVal;
+    public L getLeft() {
+        return left;
     }
 
-    public V getvVal() {
-        return vVal;
+    public R getRight() {
+        return right;
     }
 }

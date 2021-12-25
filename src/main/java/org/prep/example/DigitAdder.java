@@ -2,6 +2,7 @@ package org.prep.example;
 
 import org.jooq.meta.derby.sys.Sys;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +45,15 @@ public class DigitAdder {
         DigitAdder digitAdder = new DigitAdder(1);
         List<Long> composedNumbers = digitAdder.addDigitToSourceNumber(5);
         composedNumbers.stream().forEach(System.out::println);
+        System.out.println("max: " + composedNumbers.stream().mapToLong(v -> v).max());
+        System.out.println("min: " + composedNumbers.stream().mapToLong(v -> v).min());
+
 
         digitAdder = new DigitAdder(999);
         composedNumbers = digitAdder.addDigitToSourceNumber(5);
         composedNumbers.stream().forEach(System.out::println);
+        System.out.println("max: " + composedNumbers.stream().mapToLong(v -> v).max());
+        System.out.println("min: " + composedNumbers.stream().mapToLong(v -> v).min());
     }
 }
 /**
