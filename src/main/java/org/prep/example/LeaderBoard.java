@@ -13,10 +13,11 @@ import java.util.stream.Stream;
 public class LeaderBoard {
 
     // Complete the climbingLeaderboard function below.
-    static void climbingLeaderboard(int[] scores) {
+    static List<Integer> climbingLeaderboard(int[] scores) {
         List<Integer> theScores = Arrays.stream(scores).boxed().sorted(Comparator.reverseOrder())
                 .collect(Collectors.toCollection(ArrayList::new));
 
+        return theScores;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -36,8 +37,7 @@ public class LeaderBoard {
             scores[i] = scoresItem;
         }
 
-        climbingLeaderboard(scores);
-
+        System.out.println(climbingLeaderboard(scores));
         /*
         int aliceCount = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
@@ -52,7 +52,7 @@ public class LeaderBoard {
             alice[i] = aliceItem;
         }
 
-        int[] result = climbingLeaderboard(scores, alice);
+        System.out.println(climbingLeaderboard(alice));
         */
 
         scanner.close();

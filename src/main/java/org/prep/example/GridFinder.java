@@ -10,14 +10,14 @@ public class GridFinder {
 
     static Random random = new Random(System.currentTimeMillis());
     static final AbstractMap.SimpleEntry<Integer, Integer> entry = new AbstractMap.SimpleEntry(0, 0);
-    static final int limit = 9;
+    static final int limit = 16, rows = 16, cols = 16, gridLimit = 4;
 
     public static void main(String[] args) {
 
-        final int[][] array = new int[9][9];
+        final int[][] array = new int[rows][cols];
         List<Pair<Integer,Integer>> indexes = new ArrayList();
 
-        for (int i = 0; i< 9; i++) {
+        for (int i = 0; i< rows; i++) {
             final int lambdaCounter = i;
             entry.setValue(0);
             IntStream.generate(() -> random.nextInt(1000)).limit(limit).forEach(num -> {
@@ -46,8 +46,8 @@ public class GridFinder {
          */
         for (int i=0; i<indexes.size(); i++) {
             Pair<Integer, Integer> point = new Pair(indexes.get(i).left + 1, indexes.get(i).right + 1);
-            Pair<Integer, Integer> start = getGridStartCoordinate(point.left, point.right, 3);
-            Pair<Integer, Integer> end = getGridEndCoordinate(point.left, point.right, 3);
+            Pair<Integer, Integer> start = getGridStartCoordinate(point.left, point.right, gridLimit);
+            Pair<Integer, Integer> end = getGridEndCoordinate(point.left, point.right, gridLimit);
             System.out.printf("(x,y) = (%d,%d) start: (%d,%d) end: (%d,%d)\n",
                     point.getLeft()-1, point.getRight()-1,
                     start.getLeft()-1, start.getRight()-1,

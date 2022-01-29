@@ -17,6 +17,7 @@ public class GameOfLife {
                 }
             }
             updateState(future);
+            print();
             counter++;
         }
 
@@ -71,19 +72,26 @@ public class GameOfLife {
 
     public static void main(String args[]) {
         boolean[][] seedData = {
-                {false, false, false, false, false},
-                {false, false, false, false, false},
+                {false, false, true, false, false},
+                {true, false, false, false, false},
                 {false, true, true, true, false},
-                {false, false, false, false, false},
-                {false, false, false, false, false}
+                {true, false, false, false, true},
+                {false, true, false, true, false}
         };
         GameOfLife gol = new GameOfLife(seedData);
-        gol.print();
-        gol.setFutureState(1);
-        gol.print();
-        gol.setFutureState(1);
-        gol.print();
-        gol.setFutureState(1);
-        gol.print();
+        //gol.print();
+        gol.setFutureState(5000);
+        //gol.print();
+        gol.setFutureState(2000);
+        //gol.print();
+        gol.setFutureState(500);
+        //gol.print();
     }
 }
+/**
+ * What tests have you done?
+ * What are you looking for?
+ * Can you send the results?
+ * What is her medical action plan?
+ *
+ */
