@@ -16,7 +16,8 @@ public class RegexForRepeatedWords {
                 "Sam went went to to to his business",
                 "Reya is is the the best player in eye eye game",
                 "in inthe",
-                "Hello hello Ab aB"
+                "Hello hello Ab aB",
+                "This one  two one!"
         );
         InputChecker ic = new InputChecker();
         for (String line : lines) {
@@ -35,10 +36,8 @@ public class RegexForRepeatedWords {
             String input = toEvaluate;
             Matcher matcher = pattern.matcher(toEvaluate);
             int start = 0;
-            int end;
             StringBuffer buffer = new StringBuffer();
             while (matcher.find()) {
-                end = matcher.end();
                 String word = input.substring(start, matcher.start());
                 buffer.append(word);
                 Pattern forEntry = Pattern.compile(wordBoundary + word + wordBoundary);
@@ -50,7 +49,7 @@ public class RegexForRepeatedWords {
                     buffer.append(matcher.group().trim());
                 }
                 input = buffer + input;
-                start = end;
+                start = buffer.length();
                 matcher = pattern.matcher(input);
                 matcher.region(start, input.length());
             }
