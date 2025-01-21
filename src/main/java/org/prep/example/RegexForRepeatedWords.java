@@ -43,7 +43,12 @@ public class RegexForRepeatedWords {
                 buffer.append(word);
                 Pattern forEntry = Pattern.compile(wordBoundary + word + wordBoundary);
                 input = input.substring(matcher.end()).replaceAll("(?i)"+forEntry.pattern(), "");
-                buffer.append(matcher.group());
+                if (matcher.group().trim().length() == 0) {
+                    input = input.stripLeading();
+                    buffer.append(" ");
+                } else {
+                    buffer.append(matcher.group().trim());
+                }
                 input = buffer + input;
                 start = end;
                 matcher = pattern.matcher(input);
