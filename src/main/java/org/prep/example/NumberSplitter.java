@@ -40,6 +40,9 @@ public class NumberSplitter<T extends Integer> {
 
     public static void main(String[] args) {
         System.out.println("Started");
+        Double powered = Double.valueOf(Math.pow(10, 2));
+        System.out.println("powered: " + powered.longValue());
+        StringBuilder builder = new StringBuilder();
         for (String each: args) {
             int aNumber = Integer.parseInt(each);
             NumberSplitter<Integer> numberSplitter = new NumberSplitter(aNumber);
