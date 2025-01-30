@@ -6,12 +6,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class WordPermutation {
 
     static int BREAK = 100;
 
     public static void main(String[] args) {
+
         Arrays.asList(args).stream().forEach(permute -> {
             final AtomicInteger size = new AtomicInteger(0);
             findPermutations(permute.toCharArray()).stream().forEach(word -> {
@@ -25,6 +28,9 @@ public class WordPermutation {
             });
             System.out.println();
         });
+
+        new WordPermutation().addCombos(List.of("a", "b", "c"), List.of("d","e","f"));
+
     }
 
     public static List<String> findPermutations(char[] input) {
@@ -40,6 +46,7 @@ public class WordPermutation {
         fragments.push(fragment);
         while (!fragments.isEmpty()) {
             fragment = fragments.pop();
+            System.out.println(fragment+"--");
             if (fragment.length() == 0) continue;
             int indexToBreak = word.length() - fragment.length();
             if (indexToBreak > 0) {
@@ -48,6 +55,7 @@ public class WordPermutation {
                     String prefix = fragment.substring(0,i);
                     String suffix = fragment.substring(i);
                     String combined = prefix + prevChar + suffix;
+                    System.out.println(prefix+"--"+prevChar+"--"+suffix+"--");
                     if (combined.length() == word.length()) {
                         wordList.add(combined);
                     } else {
@@ -57,6 +65,15 @@ public class WordPermutation {
             }
         }
         return wordList;
+    }
+
+    protected void addCombos(List<String> letters, List<String> existing) {
+        System.out.println("addCombos");
+        letters.stream()
+                .flatMap(letter -> existing.isEmpty() ? Stream.of(letter) : existing.stream().map(est -> letter + est))
+                .collect(Collectors.toCollection(ArrayList::new))
+                .forEach(string -> System.out.println("word-" + string + "-"));
+
     }
 
 }
