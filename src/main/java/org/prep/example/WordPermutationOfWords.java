@@ -6,15 +6,15 @@ import java.util.stream.Stream;
 
 public class WordPermutationOfWords {
 
-    static int BREAK = 100;
+    public static final String[] ARR_1 = {"dhvf","sind","ffsl","yekr","zwzq","kpeo","cila","tfty","modg","ztjg","ybty","heqg","cpwo","gdcj","lnle","sefg","vimw","bxcb"};
+    public static final String[] ARR_2 = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"};
+    public static final String[] ARR_3 = {"ab", "cd", "ef"};
 
     public static void main(String[] args) {
 
-        String[] arr = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"};
-        String[] arr2 = {"ab", "cd"};
 
-        List<String> concated = new WordPermutationOfWords().recurseWithRollover(new ArrayList<>(List.of(arr)));
-        concated.stream()
+        new WordPermutationOfWords().combos(ARR_3, "hello")
+                .stream()
                 .forEach(System.out::println);
 
 //        List<String> concated2 = new WordPermutationOfWords()
@@ -58,32 +58,42 @@ public class WordPermutationOfWords {
         }
     }
 
-    protected List<String> recurseList(List<String> words, int index) {
-        if (index <= 1) {
-            List<String> result = new ArrayList<>();
-            result.add(String.join("", words));
-            return result;
-        } else {
-            List<String> result = new ArrayList<>();
-            for (String one : recurseList(words, index - 1)) {
-                result.add(one);
-            }
-            for (int i = 0; i < index - 1; i++) {
-                if (index % 2 == 0) {
-                    String temp = words.get(i);
-                    words.set(i, words.get(index - 1));
-                    words.set(index - 1, temp);
-                } else {
-                    String temp = words.get(0);
-                    words.set(0, words.get(index - 1));
-                    words.set(index - 1, temp);
-                }
-                for (String one : recurseList(words, index - 1)) {
-                    result.add(one);
+    protected Set<Integer> combos(String[] words, String toSearch) {
+            Set<Integer> result = new HashSet<>();
+            if (words.length <= 1) {
+                String theWord = String.join("", words);
+                result.addAll(foundIndexes(toSearch, theWord));
+            } else {
+                for (int i = 0; i < words.length; i++) {
+                    int counter = i + 1;
+                    for (int j = counter; j < counter + words.length; j++) {
+                        int k = j;
+                        if (k >= words.length) {
+                            k = k % words.length;
+                        }
+                        if (i == k) continue;
+                        System.out.println("["+i+","+k+"]");
+                    }
                 }
             }
+
             return result;
+    }
+
+    protected Set<Integer> foundIndexes(String searchIn, String toSearch) {
+        int startFrom = 0;
+        Set<Integer> indexes = new HashSet<>();
+        while (true) {
+            int index = searchIn.indexOf(toSearch, startFrom);
+            if (index < 0) {
+                break;
+            } else {
+                indexes.add(index);
+                startFrom = index;
+            }
         }
+
+        return indexes;
     }
 
 }

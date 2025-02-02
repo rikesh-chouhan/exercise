@@ -17,7 +17,7 @@ public class WordPermutation {
 
         Arrays.asList(args).stream().forEach(permute -> {
             final AtomicInteger size = new AtomicInteger(0);
-            findPermutations(permute.toCharArray()).stream().forEach(word -> {
+            findPermutations("abcdef".toCharArray(), 2).stream().forEach(word -> {
                 size.set(size.get() + word.length() + 1);
                 System.out.printf(word + " ");
                 if (size.get() > BREAK) {
@@ -29,11 +29,11 @@ public class WordPermutation {
             System.out.println();
         });
 
-        new WordPermutation().addCombos(List.of("a", "b", "c"), List.of("d","e","f"));
+        //new WordPermutation().addCombos(List.of("a", "b", "c"), List.of("d","e","f"));
 
     }
 
-    public static List<String> findPermutations(char[] input) {
+    public static List<String> findPermutations(char[] input, int length) {
         if (input == null || input.length == 1) {
             return input == null ?
                     Collections.emptyList() :
@@ -42,20 +42,20 @@ public class WordPermutation {
         List<String> wordList = new ArrayList();
         String word = new String(input); // ab
         Stack<String> fragments = new Stack<>();
-        String fragment = word.substring(word.length()-1);
+        String fragment = word.substring(word.length()-length);
         fragments.push(fragment);
         while (!fragments.isEmpty()) {
             fragment = fragments.pop();
-            System.out.println(fragment+"--");
+            //System.out.println(fragment+"--");
             if (fragment.length() == 0) continue;
             int indexToBreak = word.length() - fragment.length();
             if (indexToBreak > 0) {
-                String prevChar = word.substring(indexToBreak-1, indexToBreak);
-                for(int i=0; i<=fragment.length(); i++) {
+                String prevChar = word.substring(indexToBreak-length    , indexToBreak);
+                for(int i=0; i<=fragment.length(); i += length) {
                     String prefix = fragment.substring(0,i);
                     String suffix = fragment.substring(i);
                     String combined = prefix + prevChar + suffix;
-                    System.out.println(prefix+"--"+prevChar+"--"+suffix+"--");
+                    //System.out.println(prefix+"--"+prevChar+"--"+suffix+"--");
                     if (combined.length() == word.length()) {
                         wordList.add(combined);
                     } else {
