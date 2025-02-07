@@ -67,13 +67,4 @@ public class WordPermutation {
         return wordList;
     }
 
-    protected void addCombos(List<String> letters, List<String> existing) {
-        System.out.println("addCombos");
-        letters.stream()
-                .flatMap(letter -> existing.isEmpty() ? Stream.of(letter) : existing.stream().map(est -> letter + est))
-                .collect(Collectors.toCollection(ArrayList::new))
-                .forEach(string -> System.out.println("word-" + string + "-"));
-
-    }
-
 }

@@ -9,18 +9,48 @@ public class WordPermutationOfWords {
     public static final String[] ARR_1 = {"dhvf","sind","ffsl","yekr","zwzq","kpeo","cila","tfty","modg","ztjg","ybty","heqg","cpwo","gdcj","lnle","sefg","vimw","bxcb"};
     public static final String[] ARR_2 = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"};
     public static final String[] ARR_3 = {"ab", "cd", "ef"};
+    public static final String TO_SEARCH = "pjzkrkevzztxductzzxmxsvwjkxpvukmfjywwetvfnujhweiybwvvsr" +
+            "fequzkhossmootkmyxgjgfordrpapjuunmqnxxdrqrfgkrsjqbszgiqlcfnrpjlcwdrvbumtotzylshdvccdm" +
+            "sqoadfrpsvnwpizlwszrtyclhgilklydbmfhuywotjmktnwrfvizvnmfvvqfiokkdprznnnjycttprkxpuykh" +
+            "mpchiksyucbmtabiqkisgbhxngmhezrrqvayfsxauampdpxtafniiwfvdufhtwajrbkxtjzqjnfocdhekumtt" +
+            "uqwovfjrgulhekcpjszyynadxhnttgmnxkduqmmyhzfnjhducesctufqbumxbamalqudeibljgbspeotkgvdd" +
+            "cwgxidaiqcvgwykhbysjzlzfbupkqunuqtraxrlptivshhbihtsigtpipguhbhctcvubnhqipncyxfjebdnjy" +
+            "etnlnvmuxhzsdahkrscewabejifmxombiamxvauuitoltyymsarqcuuoezcbqpdaprxmsrickwpgwpsoplhug" +
+            "bikbkotzrtqkscekkgwjycfnvwfgdzogjzjvpcvixnsqsxacfwndzvrwrycwxrcismdhqapoojegggkocyrdt" +
+            "kzmiekhxoppctytvphjynrhtcvxcobxbcjjivtfjiwmduhzjokkbctweqtigwfhzorjlkpuuliaipbtfldiny" +
+            "etoybvugevwvhhhweejogrghllsouipabfafcxnhukcbtmxzshoyyufjhzadhrelweszbfgwpkzlwxkogyogu" +
+            "tscvuhcllphshivnoteztpxsaoaacgxyaztuixhunrowzljqfqrahosheukhahhbiaxqzfmmwcjxountkevsv" +
+            "pbzjnilwpoermxrtlfroqoclexxisrdhvfsindffslyekrzwzqkpeocilatftymodgztjgybtyheqgcpwogdc" +
+            "jlnlesefgvimwbxcbzvaibspdjnrpqtyeilkcspknyylbwndvkffmzuriilxagyerjptbgeqgebiaqnvdubrt" +
+            "xibhvakcyotkfonmseszhczapxdlauexehhaireihxsplgdgmxfvaevrbadbwjbdrkfbbjjkgcztkcbwagtcn" +
+            "rtqryuqixtzhaakjlurnumzyovawrcjiwabuwretmdamfkxrgqgcdgbrdbnugzecbgyxxdqmisaqcyjkqrntx" +
+            "qmdrczxbebemcblftxplafnyoxqimkhcykwamvdsxjezkpgdpvopddptdfbprjustquhlazkjfluxrzopqdst" +
+            "ulybnqvyknrchbphcarknnhhovweaqawdyxsqsqahkepluypwrzjegqtdoxfgzdkydeoxvrfhxusrujnmjzqr" +
+            "rlxglcmkiykldbiasnhrjbjekystzilrwkzhontwmehrfsrzfaqrbbxncphbzuuxeteshyrveamjsfiaharkc" +
+            "qxefghgceeixkdgkuboupxnwhnfigpkwnqdvzlydpidcljmflbccarbiegsmweklwngvygbqpescpeichmfid" +
+            "gsjmkvkofvkuehsmkkbocgejoiqcnafvuokelwuqsgkyoekaroptuvekfvmtxtqshcwsztkrzwrpabqrrhnle" +
+            "rxjojemcxel";
+
 
     public static void main(String[] args) {
 
+        if (args[0].equals("3")) {
+            new WordPermutationOfWords().combos(ARR_3, "hello")
+                    .stream()
+                    .forEach(System.out::println);
+            return;
+        }
 
-        new WordPermutationOfWords().combos(ARR_3, "hello")
-                .stream()
-                .forEach(System.out::println);
+        if (args[0].equals("1")) {
+            long containsCount = Arrays.stream(ARR_1)
+                    .filter(word -> TO_SEARCH.contains(word))
+                    .count();
+            System.out.println("count " + containsCount);
+        }
 
-//        List<String> concated2 = new WordPermutationOfWords()
-//                .recurseList(new ArrayList<>(List.of(arr)), arr.length);
-//        concated2.stream()
-//                .forEach(System.out::println);
+        if (args[0].equals("2")) {
+            new WordPermutationOfWords().printPermutationsIterative("1234");
+        }
     }
 
     protected List<String> recurseWithRollover(List<String> entries) {
@@ -96,4 +126,28 @@ public class WordPermutationOfWords {
         return indexes;
     }
 
+    private void printPermutationsIterative(String string){
+        int [] factorials = new int[string.length()+1];
+        factorials[0] = 1;
+        for (int i = 1; i<=string.length();i++) {
+            factorials[i] = factorials[i-1] * i;
+        }
+
+        for (int i = 0; i < factorials[string.length()]; i++) {
+            String onePermutation="";
+            String temp = string;
+            int positionCode = i;
+            for (int position = string.length(); position > 0 ;position--){
+                int factorialAt = factorials[position-1];
+                int selected = positionCode / factorialAt;
+                onePermutation += temp.charAt(selected);
+                System.out.print("{"+position+","+positionCode+","+factorialAt+","+selected+",");
+                positionCode = positionCode % factorialAt;
+                System.out.print(positionCode+"}");
+                temp = temp.substring(0,selected) + temp.substring(selected+1);
+            }
+            System.out.println();
+            //System.out.println(onePermutation);
+        }
+    }
 }
