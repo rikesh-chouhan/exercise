@@ -1,0 +1,8 @@
+id,parent_id,status,rule_id
+1,100,unresolved,2
+2,100,fixed,1
+3,100,unresolved,3
+4,101,unresolved,2
+5,101,fixed,2
+6,102,unresolved,3
+7,102,fixed,1

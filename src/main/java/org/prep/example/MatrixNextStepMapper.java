@@ -10,14 +10,26 @@ public class MatrixNextStepMapper {
 
         System.out.println("matrix: "+ Arrays.deepToString(getMatrix()));
         System.out.println("result: "+Arrays.deepToString(movementArray(getMatrix(), 1, 1)));
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("matrix: "+ Arrays.deepToString(getMatrix2()));
+        System.out.println("result: "+Arrays.deepToString(movementArray(getMatrix2(), 3, 0)));
     }
 
     static int[][] getMatrix() {
         return new int[][]{
-                {7,4, 1},
+                {7, 4, 1},
                 {6, 5, 3},
                 {8, 9, 7}
                 };
+    }
+
+    static int[][] getMatrix2() {
+        return new int[][]{
+            {7, 4, 2, 4},
+            {6, 5, 5, 6},
+            {8, 9, 7, 3},
+            {9, 9, 9, 1}
+        };
     }
 
     static int[][] movementArray(int[][] toProcess, int startRow, int startCol) {
@@ -32,18 +44,20 @@ public class MatrixNextStepMapper {
         candidates.push(new Pair<>(new RowCol(startRow, startCol), 1));
         while (!candidates.isEmpty()) {
             Pair<RowCol, Integer> current = candidates.pop();
-            List<Pair<Integer,Integer>> posns = List.of(
-                    new Pair(current.left.getRow()-1,current.left.getColumn()),
-                    new Pair(current.left.getRow()+1,current.left.getColumn()),
-                    new Pair(current.left.getRow(),current.left.getColumn()-1),
-                    new Pair(current.left.getRow(),current.left.getColumn()+1)
+            startRow = current.left.getRow();
+            startCol = current.left.getColumn();
+            List<Pair<Integer,Integer>> positions = List.of(
+                    new Pair<Integer,Integer>(startRow-1, startCol),
+                    new Pair<Integer, Integer>(startRow+1, startCol),
+                    new Pair<Integer, Integer>(startRow,startCol-1),
+                    new Pair<Integer, Integer>(startRow,startCol+1)
             );
-            for (Pair<Integer,Integer> aPosn : posns) {
-                int row = aPosn.left;
+            for (Pair<Integer,Integer> aPose : positions) {
+                int row = aPose.left;
                 if (row < 0 || row >= toProcess.length) {
                     continue;
                 }
-                int column = aPosn.right;
+                int column = aPose.right;
                 if (column < 0 || column >= toProcess[row].length) {
                     continue;
                 }

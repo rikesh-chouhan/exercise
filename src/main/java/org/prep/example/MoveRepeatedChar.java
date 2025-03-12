@@ -1,6 +1,5 @@
 package org.prep.example;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -15,8 +14,7 @@ public class MoveRepeatedChar {
                 .forEach(input -> {
                     String output = reArrange(input);
 
-                    System.out.println(input);
-                    System.out.println(output);
+                    System.out.println("input: " + input + " output: " + output);
                 });
     }
 
@@ -39,9 +37,7 @@ public class MoveRepeatedChar {
                     for (int i = 0; i < buffCurr; i++) {
                         if (toCheck != buffer.charAt(i)) {
                             // check previous char as well
-                            if (i > 0 && buffer.charAt(i - 1) == toCheck) {
-                                continue;
-                            } else {
+                            if (i == 0 || buffer.charAt(i - 1) != toCheck) {
                                 added = true;
                                 buffer.insert(i, toCheck);
                                 break;

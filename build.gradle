@@ -32,6 +32,7 @@ dependencies {
     implementation 'org.jooq:jooq:3.12.2'
     implementation 'org.jooq:jooq-meta:3.12.2'
     implementation 'org.jooq:jooq-codegen:3.12.2'
+    implementation 'com.opencsv:opencsv:5.7.1'
 
     // Use JUnit coding framework
     testImplementation 'junit:junit:4.12'
