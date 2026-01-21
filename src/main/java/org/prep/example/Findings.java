@@ -125,7 +125,7 @@ public class Findings {
   public static List<String[]> readCsv(String filename) {
     List<String[]> array = new ArrayList<>();
     try (CSVReader csvReader = new CSVReaderBuilder(new FileReader(filename))
-        .withSkipLines(1)
+        //.withSkipLines(0)
         .build()
     ) {
       array = csvReader.readAll();
